@@ -1,5 +1,7 @@
 # Mohammad Afrizal Rizky Setyawan Portfolio
 
+🚀 **Live Demo:** [https://portofolio-delta-lyart.vercel.app/](https://portofolio-delta-lyart.vercel.app/)
+
 Professional personal portfolio landing page for Mohammad Afrizal Rizky Setyawan, an Information Technology student at Telkom University Surabaya.
 
 ## Short Description
@@ -78,4 +80,5 @@ Faculty: Faculty of Informatics
 University: Telkom University  
 Campus: Telkom University Surabaya  
 GitHub: https://github.com/Frizr  
-Instagram: https://www.instagram.com/frizal_risk/
+Instagram: https://www.instagram.com/frizal_risk/  
+Website: https://portofolio-delta-lyart.vercel.app/

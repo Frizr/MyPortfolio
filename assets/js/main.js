@@ -101,15 +101,15 @@ document.querySelectorAll(".contact-form").forEach((form) => {
         status.style.color = "#10b981"; // success color
         form.reset();
       } else {
-        status.textContent = "Pesan berhasil dikirim!";
-        status.style.color = "#10b981"; 
-        form.reset();
+        // Gagal dari server
+        status.textContent = "Gagal mengirim pesan. Pastikan form sudah diaktivasi.";
+        status.style.color = "#ef4444"; // red
       }
     })
     .catch(error => {
-      status.textContent = "Pesan berhasil dikirim!";
-      status.style.color = "#10b981";
-      form.reset();
+      // Error jaringan atau CORS (karena domain baru belum diaktivasi)
+      status.textContent = "Error: Anda harus mengaktifkan domain Vercel ini lewat email Anda terlebih dahulu.";
+      status.style.color = "#ef4444";
     });
   });
 });
