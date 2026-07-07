@@ -85,4 +85,4 @@ University: Telkom University
 Campus: Telkom University Surabaya  
 GitHub: https://github.com/Frizr  
 Instagram: https://www.instagram.com/frizal_risk/  
-Website: https://portofolio-delta-lyart.vercel.app/
+Website: https://frizalrisk.vercel.app/

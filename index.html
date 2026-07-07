@@ -59,27 +59,10 @@
         </div>
 
         <div class="hero-visual" aria-label="Technology project visual">
-          <div class="holo-stage">
-            <div class="glow glow-emerald"></div>
-            <div class="glow glow-blue"></div>
-            <div class="glow glow-prism"></div>
-            <div class="holo-backdrop"></div>
-            <div class="holo-grid-floor"></div>
-            <div class="scan-beam"></div>
-
-            <div class="holo-core">
-              <div class="holo-ring holo-ring-one"></div>
-              <div class="holo-ring holo-ring-two"></div>
-              <div class="holo-ring holo-ring-three"></div>
-              <div class="holo-chip">
-                <span class="chip-line chip-line-top"></span>
-                <strong>AR</strong>
-                <small>IT SYSTEMS</small>
-                <span class="chip-line chip-line-bottom"></span>
-              </div>
-              <div class="holo-axis axis-x"></div>
-              <div class="holo-axis axis-y"></div>
-            </div>
+          <div class="profile-stage">
+            <div class="glow"></div>
+            <div id="three-stage" class="profile-img" style="border-radius: 50%; overflow: hidden; position: relative; width: 100%; height: 100%;  display: flex; align-items: center; justify-content: center;"></div>
+          </div>
 
             <div class="data-panel panel-left">
               <span>Core Focus</span>
@@ -88,7 +71,7 @@
             </div>
             <div class="data-panel panel-right">
               <span>GitHub</span>
-              <strong>6 Pinned Repos</strong>
+              <strong>31 Repositories</strong>
               <small>POS, mobile, UX, game systems</small>
             </div>
             <div class="data-node node-one"></div>
@@ -120,7 +103,7 @@
           </p>
 
           <div class="metrics-grid">
-            <div><strong>6</strong><span>Pinned Repositories</span></div>
+            <div><strong>31</strong><span>Public Repositories</span></div>
             <div><strong>7</strong><span>Languages Learned</span></div>
             <div><strong>3</strong><span>Main Focus Areas</span></div>
             <div><strong>2023</strong><span>Started IT Study</span></div>
@@ -128,8 +111,9 @@
         </article>
 
         <aside class="profile-card glass-panel" aria-label="Personal information">
-          <div class="profile-orbit">
-            <span>IT</span>
+          <div class="profile-orbit" role="img" aria-label="Foto Profil Mohammad Afrizal Rizky Setyawan" style="background-image: url('assets/img/profile.jpg'); background-size: cover; background-position: center; border: 2px solid var(--accent); overflow: hidden;">
+            <span style="display: none;">IT</span>
+            
           </div>
           <div class="info-list">
             <div><span>Full Name</span><strong>Mohammad Afrizal Rizky Setyawan</strong></div>
@@ -486,7 +470,7 @@
             </div>
             <div class="project-meta">
               <span>Role: Mobile App Developer</span>
-              <span>Stack: Flutter, Dart, Firebase, GetX</span>
+              <span>Stack: Flutter, Dart</span>
             </div>
             <div class="project-actions">
               <a href="https://github.com/Frizr/KasirKilat" target="_blank" rel="noreferrer">GitHub</a>
@@ -632,6 +616,37 @@
             </div>
           </div>
         </article>
+
+        <article class="project-card">
+          <div class="project-visual visual-mytabungan">
+            <div class="project-visual-label">
+              <span>Personal Finance Planner</span>
+              <strong>MyTabungan</strong>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-title-row">
+              <h3>MyTabungan</h3>
+              <span class="repo-badge">Pinned</span>
+            </div>
+            <p>
+              A Flutter and Firebase personal finance planner with a modern design 
+            </p>
+            <div class="project-highlights">
+              <span>Finance</span>
+              <span>Tracker</span>
+              
+            </div>
+            <div class="project-meta">
+              <span>Role: Mobile App Developer</span>
+              <span>Stack: Flutter, Dart</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/Frizr/MyTabungan" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="project-detail-mytabungan.html">Detail</a>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -747,6 +762,8 @@
       <p>&copy; 2026 Mohammad Afrizal Rizky Setyawan. All Rights Reserved.</p>
     </div>
   </footer>
+  <script src="assets/js/three.min.js"></script>
+  <script src="assets/js/app.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 

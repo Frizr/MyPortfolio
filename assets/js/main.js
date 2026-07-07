@@ -1,209 +1,131 @@
-document.documentElement.classList.add("js");
-
-const navToggle = document.querySelector("#nav-toggle");
-const navLinks = document.querySelectorAll(".nav-panel a");
-
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    if (navToggle) {
-      navToggle.checked = false;
-    }
-  });
-});
-
-const pagePath = window.location.pathname.split("/").pop() || "index.html";
-
-document.querySelectorAll(".nav-panel a").forEach((link) => {
-  const href = link.getAttribute("href") || "";
-  const linkPath = href.split("#")[0] || "index.html";
-
-  if (linkPath === pagePath || (pagePath === "" && linkPath === "index.html")) {
-    link.classList.add("is-active");
-  }
-});
-
-const revealTargets = document.querySelectorAll(
-  ".section-heading, .glass-panel, .skill-card, .project-card, .timeline-item, .contact-copy, .page-hero-card, .detail-section, .prism-services article, .testimonial-grid article, .blog-grid article, .metrics-grid div"
-);
-
-revealTargets.forEach((target) => target.classList.add("reveal"));
-
-if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12 }
-  );
-
-  revealTargets.forEach((target) => observer.observe(target));
-} else {
-  revealTargets.forEach((target) => target.classList.add("is-visible"));
-}
-
-const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-
-if (canHover) {
-  document.querySelectorAll(".project-card, .skill-card").forEach((card) => {
-    card.addEventListener("mousemove", (event) => {
-      const rect = card.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-      const rotateY = ((x / rect.width) - 0.5) * 5;
-      const rotateX = ((0.5 - y / rect.height) * 5);
-
-      card.style.setProperty("--tilt-x", `${rotateX}deg`);
-      card.style.setProperty("--tilt-y", `${rotateY}deg`);
-    });
-
-    card.addEventListener("mouseleave", () => {
-      card.style.setProperty("--tilt-x", "0deg");
-      card.style.setProperty("--tilt-y", "0deg");
-    });
-  });
-}
-
-document.querySelectorAll(".contact-form").forEach((form) => {
-  let status = form.querySelector(".form-status");
-
-  if (!status) {
-    status = document.createElement("p");
-    status.className = "form-status";
-    status.setAttribute("aria-live", "polite");
-    status.style.marginTop = "1rem";
-    status.style.fontWeight = "bold";
-    form.appendChild(status);
-  }
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    status.textContent = "Sending message...";
-    status.style.color = "#f59e0b"; // warning color
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Navigation Toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const navPanel = document.querySelector('.nav-panel');
     
-    const formData = new FormData(form);
-
-    fetch("https://formsubmit.co/ajax/afrizalrizky000@gmail.com", {
-      method: "POST",
-      body: formData,
-      headers: {
-        'Accept': 'application/json'
-      }
-    })
-    .then(response => response.json())
-    .then(data => {
-      if(data.success === "true" || data.success === true) {
-        status.textContent = "Message sent successfully!";
-        status.style.color = "#10b981"; // success color
-        form.reset();
-      } else {
-        // Gagal dari server, mungkin karena butuh aktivasi pertama kali dari domain baru
-        // Kita fallback ke normal submit agar diarahkan ke halaman aktivasi FormSubmit
-        status.textContent = "Redirecting for security verification (1x only)...";
-        status.style.color = "#3b82f6"; // blue
-        form.submit();
-      }
-    })
-    .catch(error => {
-      // Error jaringan atau CORS (biasanya karena butuh aktivasi)
-      status.textContent = "Redirecting for security verification (1x only)...";
-      status.style.color = "#3b82f6";
-      form.submit();
-    });
-  });
-});
-
-// Pagination Logic for projects.html
-document.addEventListener("DOMContentLoaded", () => {
-  const projectGrid = document.querySelector(".all-projects-grid");
-  if (!projectGrid) return; 
-
-  const projects = Array.from(projectGrid.querySelectorAll(".project-card"));
-  const paginationControls = document.getElementById("pagination-controls");
-  if (!paginationControls || projects.length === 0) return;
-
-  const itemsPerPage = 3; // Menampilkan 3 project per halaman
-  let currentPage = 1;
-  const totalPages = Math.ceil(projects.length / itemsPerPage);
-
-  function renderProjects(page) {
-    projects.forEach((p) => (p.style.display = "none"));
-    
-    const start = (page - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    
-    projects.slice(start, end).forEach((p) => {
-      p.style.display = ""; 
-    });
-  }
-
-  function renderControls() {
-    paginationControls.innerHTML = "";
-
-    // Prev Button
-    const prevBtn = document.createElement("a");
-    prevBtn.href = "#";
-    prevBtn.className = "btn " + (currentPage === 1 ? "btn-ghost" : "btn-secondary");
-    if(currentPage === 1) {
-      prevBtn.style.opacity = "0.5";
-      prevBtn.style.cursor = "not-allowed";
-    }
-    prevBtn.textContent = "Previous";
-    prevBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      if (currentPage > 1) {
-        currentPage--;
-        updatePagination();
-      }
-    });
-    paginationControls.appendChild(prevBtn);
-
-    // Page Numbers
-    for (let i = 1; i <= totalPages; i++) {
-      const pageBtn = document.createElement("a");
-      pageBtn.href = "#";
-      pageBtn.className = "btn " + (i === currentPage ? "btn-primary" : "btn-ghost");
-      pageBtn.textContent = i;
-      pageBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        currentPage = i;
-        updatePagination();
-      });
-      paginationControls.appendChild(pageBtn);
+    if (navToggle && navPanel) {
+        navPanel.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.checked = false;
+            });
+        });
     }
 
-    // Next Button
-    const nextBtn = document.createElement("a");
-    nextBtn.href = "#";
-    nextBtn.className = "btn " + (currentPage === totalPages ? "btn-ghost" : "btn-secondary");
-    if(currentPage === totalPages) {
-      nextBtn.style.opacity = "0.5";
-      nextBtn.style.cursor = "not-allowed";
+    // 2. Active Link Highlighting based on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-panel a');
+
+    function highlightNav() {
+        const scrollY = window.scrollY;
+        
+        sections.forEach(current => {
+            const sectionHeight = current.offsetHeight;
+            const sectionTop = current.offsetTop - 100;
+            const sectionId = current.getAttribute('id');
+            
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(sectionId)) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
     }
-    nextBtn.textContent = "Next";
-    nextBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      if (currentPage < totalPages) {
-        currentPage++;
-        updatePagination();
-      }
-    });
-    paginationControls.appendChild(nextBtn);
-  }
+    window.addEventListener('scroll', highlightNav);
 
-  function updatePagination() {
-    renderProjects(currentPage);
-    renderControls();
+    // 3. Smooth Advanced Animations (Replacing Impeccable)
+    // We use IntersectionObserver with a spring-like CSS transition
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                entry.target.style.transform = 'translateY(0) scale(1)';
+                entry.target.style.opacity = '1';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Add base styles to elements we want to animate
+    const animateElements = document.querySelectorAll('.section-heading, .skill-card, .project-card, .timeline-item, .blog-grid article, .service-grid article');
     
-    // Smooth scroll ke atas daftar project
-    const yOffset = -100; 
-    const y = projectGrid.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    window.scrollTo({top: y, behavior: 'smooth'});
-  }
+    animateElements.forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px) scale(0.95)';
+        el.style.transition = `all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) ${index % 3 * 0.1}s`;
+        observer.observe(el);
+    });
 
-  updatePagination();
+    // 4. 3D Tilt Effect for Cards
+    const cards = document.querySelectorAll('.project-card, .skill-card, .about-copy, .profile-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = ((y - centerY) / centerY) * -5;
+            const rotateY = ((x - centerX) / centerX) * 5;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            card.style.transition = 'transform 0.1s ease';
+            card.style.zIndex = '10';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            card.style.transition = 'transform 0.5s ease';
+            card.style.zIndex = '1';
+        });
+    });
+
+    // 5. Contact Form Submission Handling
+    const form = document.querySelector('.contact-form');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+
+            const formData = new FormData(this);
+            
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    btn.textContent = 'Message Sent!';
+                    btn.style.backgroundColor = '#00d722';
+                    this.reset();
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.disabled = false;
+                        btn.style.backgroundColor = '';
+                    }, 3000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            }).catch(error => {
+                // Fallback for formsubmit.co which sometimes redirects instead of json response
+                this.submit(); 
+            });
+        });
+    }
 });
