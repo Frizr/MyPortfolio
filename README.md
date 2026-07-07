@@ -1,6 +1,6 @@
 # Mohammad Afrizal Rizky Setyawan Project Website
 
-Live Demo: [https://portofolio-delta-lyart.vercel.app/](https://portofolio-delta-lyart.vercel.app/)
+Live Demo: [frizalrisk.vercel.app/](frizalrisk.vercel.app/)
 
 Personal project website for Mohammad Afrizal Rizky Setyawan, an Information Technology student at Telkom University Surabaya.
 
