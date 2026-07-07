@@ -59,21 +59,14 @@ portofolio/
 6. **DOWN** (Godot 4/C# Action Game)
 7. **MyTabungan** (Flutter/Dart Finance App)
 
-## 🛠️ How to Open Locally
-
-1. Clone this repository: `git clone https://github.com/Frizr/portofolio.git`
-2. Open the project folder in your preferred editor (e.g., VS Code).
-3. We recommend using the **Live Server** extension to open `index.html` (this ensures the Three.js canvas loads correctly without CORS issues).
-4. Or, simply drag and drop `index.html` into your browser.
-
 ## 👤 Author
 
-* **Name:** Mohammad Afrizal Rizky Setyawan
-* **Student ID:** 1202230029
-* **Class:** IT 06-02
-* **Study Program:** Information Technology
-* **Faculty:** Faculty of Informatics
-* **University:** Telkom University Surabaya
-* **GitHub:** [github.com/Frizr](https://github.com/Frizr)
-* **Instagram:** [@frizal_risk](https://www.instagram.com/frizal_risk/)
-* **Website:** [frizalrisk.vercel.app](https://frizalrisk.vercel.app/)
+- **Name:** Mohammad Afrizal Rizky Setyawan
+- **Student ID:** 1202230029
+- **Class:** IT 06-02
+- **Study Program:** Information Technology
+- **Faculty:** Faculty of Informatics
+- **University:** Telkom University Surabaya
+- **GitHub:** [github.com/Frizr](https://github.com/Frizr)
+- **Instagram:** [@frizal_risk](https://www.instagram.com/frizal_risk/)
+- **Website:** [frizalrisk.vercel.app](https://frizalrisk.vercel.app/)
