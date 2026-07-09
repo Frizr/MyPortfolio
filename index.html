@@ -11,6 +11,10 @@
 </head>
 
 <body id="home" class="prism-page">
+    <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="grid-overlay"></div>
+
   <header class="site-header">
     <nav class="navbar container" aria-label="Primary navigation">
       <a class="logo" href="index.html#home">Afrizal Rizky</a>
@@ -54,7 +58,7 @@
           <div class="hero-actions" aria-label="Project links">
             <a class="btn btn-primary" href="#project">See My Projects</a>
             <a class="btn btn-secondary" href="#contact">Get In Touch</a>
-            <a class="btn btn-ghost" href="https://github.com/Frizr" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn btn-ghost btn-icon" href="https://github.com/Frizr" target="_blank" rel="noreferrer" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
           </div>
         </div>
 
@@ -78,7 +82,6 @@
             <div class="data-node node-two"></div>
             <div class="data-node node-three"></div>
           </div>
-        </div>
       </div>
     </section>
 
@@ -181,97 +184,71 @@
         <h2>Skill areas I am learning, improving, and applying in project-based work.</h2>
       </div>
 
-      <div class="container skills-grid prism-skills">
-        <article class="skill-card">
-          <h3>Frontend Development</h3>
-          <div class="skill-bars">
-            <div class="skill-bar" style="--value: 82%">
-              <span>HTML5</span>
-              <strong>82%</strong>
+      
+      <div class="container">
+        <div class="clean-skills-container">
+            <div class="skill-category reveal">
+                <h3>Frontend Development</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                </div>
             </div>
-            <div class="skill-bar" style="--value: 78%">
-              <span>CSS3</span>
-              <strong>78%</strong>
+            
+            <div class="skill-category reveal" style="transition-delay: 0.1s;">
+                <h3>Backend & Database</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">PHP</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">Firebase</span>
+                </div>
             </div>
-            <div class="skill-bar" style="--value: 68%">
-              <span>JavaScript</span>
-              <strong>68%</strong>
-            </div>
-          </div>
-        </article>
 
-        <article class="skill-card">
-          <h3>Backend and Database</h3>
-          <div class="skill-bars">
-            <div class="skill-bar" style="--value: 64%">
-              <span>PHP</span>
-              <strong>64%</strong>
+            <div class="skill-category reveal" style="transition-delay: 0.2s;">
+                <h3>Languages</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">C</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Dart</span>
+                    <span class="skill-tag">C#</span>
+                    <span class="skill-tag">Kotlin</span>
+                    <span class="skill-tag">Golang</span>
+                </div>
             </div>
-            <div class="skill-bar" style="--value: 62%">
-              <span>MySQL</span>
-              <strong>62%</strong>
+
+            <div class="skill-category reveal">
+                <h3>IoT & Hardware</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Arduino IDE</span>
+                    <span class="skill-tag">Microcontrollers</span>
+                    <span class="skill-tag">Sensors</span>
+                </div>
             </div>
-            <div class="skill-bar" style="--value: 58%">
-              <span>Firebase</span>
-              <strong>58%</strong>
+
+            <div class="skill-category reveal" style="transition-delay: 0.1s;">
+                <h3>Mobile & Game</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Flutter</span>
+                    <span class="skill-tag">Godot 4</span>
+                    <span class="skill-tag">.NET</span>
+                </div>
             </div>
-          </div>
-        </article>
 
-        <article class="skill-card">
-          <h3>Programming Fundamentals</h3>
-          <div class="tag-list">
-            <span>C</span>
-            <span>C++</span>
-            <span>Java</span>
-            <span>Python</span>
-            <span>Dart</span>
-            <span>C#</span>
-            <span>Kotlin</span>
-            <span>JavaScript</span>
-            <span>PHP</span>
-            <span>MySQL</span>
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>Golang</span>
-          </div>
-        </article>
-
-        <article class="skill-card">
-          <h3>IoT and Hardware</h3>
-          <div class="tag-list">
-            <span>Arduino IDE</span>
-            <span>Arduino</span>
-            <span>Microcontroller Basics</span>
-            <span>Sensor Integration</span>
-          </div>
-        </article>
-
-        <article class="skill-card">
-          <h3>Mobile and Game</h3>
-          <div class="tag-list">
-            <span>Flutter</span>
-            <span>Dart</span>
-            <span>Godot 4</span>
-            <span>C#</span>
-            <span>.NET</span>
-          </div>
-        </article>
-
-        <article class="skill-card">
-          <h3>Design and Tools</h3>
-          <div class="tag-list">
-            <span>UI/UX Design</span>
-            <span>Wireframing</span>
-            <span>Prototyping</span>
-            <span>Git</span>
-            <span>GitHub</span>
-            <span>VS Code</span>
-            <span>Figma</span>
-            <span>Canva</span>
-          </div>
-        </article>
+            <div class="skill-category reveal" style="transition-delay: 0.2s;">
+                <h3>Design & Tools</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">UI/UX</span>
+                    <span class="skill-tag">Figma</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">VS Code</span>
+                </div>
+            </div>
+        </div>
       </div>
+
     </section>
 
     <section class="section-padding section-deep" id="services">
@@ -324,7 +301,7 @@
       </div>
 
       <div class="container project-grid coverflow-grid">
-        <article class="project-card">
+<article class="project-card">
           <div class="project-visual visual-pos">
             <div class="project-shot shot-dashboard" aria-hidden="true">
               <div class="shot-window-bar"><i></i><i></i><i></i></div>
@@ -385,49 +362,7 @@
           </div>
         </article>
 
-        <article class="project-card">
-          <div class="project-visual visual-java">
-            <div class="project-shot shot-architecture" aria-hidden="true">
-              <div class="arch-node arch-top">JSP</div>
-              <div class="arch-row">
-                <span>Servlet</span>
-                <span>DAO</span>
-              </div>
-              <div class="arch-node arch-bottom">MySQL</div>
-              <div class="arch-line arch-line-one"></div>
-              <div class="arch-line arch-line-two"></div>
-            </div>
-            <div class="project-visual-label">
-              <span>Java Web System</span>
-              <strong>OOP Laundry</strong>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-title-row">
-              <h3>boslaundry-OOPversion-</h3>
-              <span class="repo-badge">Pinned</span>
-            </div>
-            <p>
-              A Java Servlet, JSP, and MySQL laundry management system built for an
-              object-oriented programming course project.
-            </p>
-            <div class="project-highlights">
-              <span>Servlet</span>
-              <span>JSP</span>
-              <span>JDBC</span>
-            </div>
-            <div class="project-meta">
-              <span>Role: Java Web Developer</span>
-              <span>Stack: Java, JSP, Servlet, JDBC, MySQL</span>
-            </div>
-            <div class="project-actions">
-              <a href="https://github.com/Frizr/boslaundry-OOPversion-" target="_blank" rel="noreferrer">GitHub</a>
-              <a href="project-detail-oop-laundry.html">Detail</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
+<article class="project-card">
           <div class="project-visual visual-flutter">
             <div class="project-shot shot-phone" aria-hidden="true">
               <div class="phone-frame">
@@ -479,146 +414,19 @@
           </div>
         </article>
 
-        <article class="project-card">
-          <div class="project-visual visual-she">
-            <div class="project-shot shot-community" aria-hidden="true">
-              <div class="community-phone">
-                <div class="community-header"></div>
-                <div class="community-progress"></div>
-                <div class="community-list">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </div>
-              <div class="community-orbit orbit-one"></div>
-              <div class="community-orbit orbit-two"></div>
-              <div class="community-orbit orbit-three"></div>
-            </div>
-            <div class="project-visual-label">
-              <span>UX Prototype</span>
-              <strong>SheConnect</strong>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-title-row">
-              <h3>SheConnect</h3>
-              <span class="repo-badge">Pinned</span>
-            </div>
-            <p>
-              A mobile-first UX prototype supporting informal women workers with learning paths,
-              community features, and institution collaboration.
-            </p>
-            <div class="project-highlights">
-              <span>Learning</span>
-              <span>Community</span>
-              <span>UX</span>
-            </div>
-            <div class="project-meta">
-              <span>Role: UI/UX and Frontend Developer</span>
-              <span>Stack: HTML, CSS, JavaScript, localStorage</span>
-            </div>
-            <div class="project-actions">
-              <a href="https://github.com/Frizr/SheConnect" target="_blank" rel="noreferrer">GitHub</a>
-              <a href="project-detail-sheconnect.html">Detail</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-visual visual-laundry">
-            <div class="project-shot shot-counter" aria-hidden="true">
-              <div class="counter-board">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <div class="counter-receipt">
-                <i></i>
-                <i></i>
-                <i></i>
-                <strong></strong>
-              </div>
-              <div class="counter-status"></div>
-            </div>
-            <div class="project-visual-label">
-              <span>Mini POS Web App</span>
-              <strong>LAUNDRYPOS</strong>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-title-row">
-              <h3>LAUNDRYPOS</h3>
-              <span class="repo-badge">Pinned</span>
-            </div>
-            <p>
-              A PHP and MySQL laundry POS mini-app for managing orders, admin services, users,
-              reports, and basic authentication.
-            </p>
-            <div class="project-highlights">
-              <span>CRUD</span>
-              <span>Admin</span>
-              <span>Export</span>
-            </div>
-            <div class="project-meta">
-              <span>Role: Web Developer</span>
-              <span>Stack: PHP, MySQL, JavaScript, HTML, CSS</span>
-            </div>
-            <div class="project-actions">
-              <a href="https://github.com/Frizr/LAUNDRYPOS" target="_blank" rel="noreferrer">GitHub</a>
-              <a href="project-detail-laundrypos.html">Detail</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-visual visual-down">
-            <div class="project-shot shot-game" aria-hidden="true">
-              <div class="game-hud">
-                <span></span>
-                <span></span>
-              </div>
-              <div class="game-arena">
-                <i class="tile tile-one"></i>
-                <i class="tile tile-two"></i>
-                <i class="tile tile-three"></i>
-                <i class="player"></i>
-                <i class="enemy"></i>
-              </div>
-              <div class="game-score">2040</div>
-            </div>
-            <div class="project-visual-label">
-              <span>Godot 4 + C#</span>
-              <strong>DOWN</strong>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-title-row">
-              <h3>DOWN</h3>
-              <span class="repo-badge">Pinned</span>
-            </div>
-            <p>
-              A dark 2D isometric action-combat game built with Godot 4 and C#, focused on
-              movement, combat systems, enemy behavior, and score mechanics.
-            </p>
-            <div class="project-highlights">
-              <span>Combat</span>
-              <span>Enemy</span>
-              <span>HUD</span>
-            </div>
-            <div class="project-meta">
-              <span>Role: Game Developer</span>
-              <span>Stack: Godot 4, C#, .NET, Python</span>
-            </div>
-            <div class="project-actions">
-              <a href="https://github.com/Frizr/DOWN" target="_blank" rel="noreferrer">GitHub</a>
-              <a href="project-detail-down.html">Detail</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
+<article class="project-card">
           <div class="project-visual visual-mytabungan">
+            <div class="project-shot shot-finance" aria-hidden="true">
+              <div class="finance-card">
+                <div class="card-chip"></div>
+                <div class="card-stripes"><span></span><span></span></div>
+              </div>
+              <div class="finance-chart">
+                <div class="chart-bar bar-1"></div>
+                <div class="chart-bar bar-2"></div>
+                <div class="chart-bar bar-3"></div>
+              </div>
+            </div>
             <div class="project-visual-label">
               <span>Personal Finance Planner</span>
               <strong>MyTabungan</strong>
@@ -710,12 +518,19 @@
           <h2>Interested in discussing internship opportunities or technology projects?</h2>
           <p>Feel free to reach out through my public profiles.</p>
 
-          <div class="contact-list">
-            <a href="https://github.com/Frizr" target="_blank" rel="noreferrer">GitHub: github.com/Frizr</a>
-            <a href="https://www.instagram.com/frizal_risk/" target="_blank" rel="noreferrer">Instagram:
-              @frizal_risk</a>
-            <a href="https://www.linkedin.com/in/mohammad-afrizal-rizky-setyawan-b21048296/" target="_blank"
-              rel="noreferrer">LinkedIn: Mohammad Afrizal Rizky Setyawan</a>
+          <div class="contact-list modern-contact">
+            <a href="https://github.com/Frizr" target="_blank" rel="noreferrer" class="contact-item">
+              <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></div>
+              <span>github.com/Frizr</span>
+            </a>
+            <a href="https://www.instagram.com/frizal_risk/" target="_blank" rel="noreferrer" class="contact-item">
+              <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
+              <span>@frizal_risk</span>
+            </a>
+            <a href="https://www.linkedin.com/in/mohammad-afrizal-rizky-setyawan-b21048296/" target="_blank" rel="noreferrer" class="contact-item">
+              <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></div>
+              <span>Mohammad Afrizal Rizky Setyawan</span>
+            </a>
           </div>
         </div>
 
@@ -752,10 +567,9 @@
       </div>
 
       <div class="footer-links">
-        <a href="https://github.com/Frizr" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://www.instagram.com/frizal_risk/" target="_blank" rel="noreferrer">Instagram</a>
-        <a href="https://www.linkedin.com/in/mohammad-afrizal-rizky-setyawan-b21048296/" target="_blank"
-          rel="noreferrer">LinkedIn</a>
+        <a href="https://github.com/Frizr" target="_blank" rel="noreferrer" aria-label="GitHub" class="social-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+        <a href="https://www.instagram.com/frizal_risk/" target="_blank" rel="noreferrer" aria-label="Instagram" class="social-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+        <a href="https://www.linkedin.com/in/mohammad-afrizal-rizky-setyawan-b21048296/" target="_blank" rel="noreferrer" aria-label="LinkedIn" class="social-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
       </div>
     </div>
     <div class="container footer-bottom">
@@ -765,6 +579,8 @@
   <script src="assets/js/three.min.js"></script>
   <script src="assets/js/app.js"></script>
   <script src="assets/js/main.js"></script>
+  <div class="cursor-dot"></div>
+  <div class="cursor-follower"></div>
 </body>
 
 </html>

@@ -33,7 +33,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    window.addEventListener('scroll', highlightNav);
+    window.addEventListener('scroll', () => {
+        highlightNav();
+        const header = document.querySelector('.site-header');
+        if (header) {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+    });
 
     // 3. Smooth Advanced Animations (Replacing Impeccable)
     // We use IntersectionObserver with a spring-like CSS transition
@@ -84,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            card.style.transform = ''; // let CSS coverflow handle the reset
             card.style.transition = 'transform 0.5s ease';
             card.style.zIndex = '1';
         });
@@ -129,3 +139,82 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+    // Custom Cursor Logic
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorRing = document.querySelector('.cursor-ring');
+    
+    if (cursorDot && cursorRing) {
+        let mouseX = 0, mouseY = 0;
+        let ringX = 0, ringY = 0;
+        
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Dot follows exactly
+            cursorDot.style.left = mouseX + 'px';
+            cursorDot.style.top = mouseY + 'px';
+        });
+        
+        // Ring follows with easing (lerp)
+        function animateCursor() {
+            ringX += (mouseX - ringX) * 0.15;
+            ringY += (mouseY - ringY) * 0.15;
+            
+            cursorRing.style.left = ringX + 'px';
+            cursorRing.style.top = ringY + 'px';
+            
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+        
+        // Hover effects
+        const interactiveElements = document.querySelectorAll('a, button, input, textarea, label, .project-card');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorDot.classList.add('hover');
+                cursorRing.classList.add('hover');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorDot.classList.remove('hover');
+                cursorRing.classList.remove('hover');
+            });
+        });
+    }
+
+    
+    // --- Trailing Cursor Animation ---
+    // Create follower element dynamically
+    const follower = document.createElement('div');
+    follower.className = 'cursor-follower';
+    document.body.appendChild(follower);
+    
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let followerX = mouseX;
+    let followerY = mouseY;
+    
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+    
+    function animateFollower() {
+        followerX += (mouseX - followerX) * 0.15; // lerp factor
+        followerY += (mouseY - followerY) * 0.15;
+        
+        // Update position (transform handles the centering and rotation)
+        follower.style.left = followerX + 'px';
+        follower.style.top = followerY + 'px';
+        
+        requestAnimationFrame(animateFollower);
+    }
+    animateFollower();
+    
+    // Add hover states to interactives
+    const interactives = document.querySelectorAll('a, button, input, textarea, .project-card, .skill-tag, .contact-item');
+    interactives.forEach(el => {
+        el.addEventListener('mouseenter', () => follower.classList.add('hover'));
+        el.addEventListener('mouseleave', () => follower.classList.remove('hover'));
+    });
