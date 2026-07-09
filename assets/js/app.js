@@ -78,10 +78,13 @@
       requestAnimationFrame(animate);
     }
 
+    let stageBounds = null;
+    stage.addEventListener("pointerenter", () => { stageBounds = stage.getBoundingClientRect(); });
     stage.addEventListener("pointermove", (event) => {
-      const bounds = stage.getBoundingClientRect();
-      targetX = ((event.clientX - bounds.left) / bounds.width - 0.5) * 0.8;
-      targetY = ((event.clientY - bounds.top) / bounds.height - 0.5) * 0.5;
+      if(stageBounds) {
+        targetX = ((event.clientX - stageBounds.left) / stageBounds.width - 0.5) * 0.8;
+        targetY = ((event.clientY - stageBounds.top) / stageBounds.height - 0.5) * 0.5;
+      }
     });
 
     window.addEventListener("resize", resize);

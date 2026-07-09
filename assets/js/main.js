@@ -138,83 +138,47 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-});
 
-    // Custom Cursor Logic
+    // --- Unified Custom Cursor Logic ---
     const cursorDot = document.querySelector('.cursor-dot');
-    const cursorRing = document.querySelector('.cursor-ring');
+    const cursorFollower = document.querySelector('.cursor-follower');
     
-    if (cursorDot && cursorRing) {
-        let mouseX = 0, mouseY = 0;
-        let ringX = 0, ringY = 0;
+    if (cursorDot && cursorFollower) {
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let followerX = mouseX;
+        let followerY = mouseY;
+        let targetScale = 1;
+        let currentScale = 1;
         
         window.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
             
-            // Dot follows exactly
-            cursorDot.style.left = mouseX + 'px';
-            cursorDot.style.top = mouseY + 'px';
+            cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
         });
         
-        // Ring follows with easing (lerp)
         function animateCursor() {
-            ringX += (mouseX - ringX) * 0.15;
-            ringY += (mouseY - ringY) * 0.15;
+            followerX += (mouseX - followerX) * 0.15;
+            followerY += (mouseY - followerY) * 0.15;
+            currentScale += (targetScale - currentScale) * 0.15;
             
-            cursorRing.style.left = ringX + 'px';
-            cursorRing.style.top = ringY + 'px';
-            
+            cursorFollower.style.transform = `translate3d(${followerX}px, ${followerY}px, 0) scale(${currentScale})`;
             requestAnimationFrame(animateCursor);
         }
         animateCursor();
         
-        // Hover effects
-        const interactiveElements = document.querySelectorAll('a, button, input, textarea, label, .project-card');
-        interactiveElements.forEach(el => {
+        const interactives = document.querySelectorAll('a, button, input, textarea, label, .project-card, .skill-tag, .contact-item');
+        interactives.forEach(el => {
             el.addEventListener('mouseenter', () => {
-                cursorDot.classList.add('hover');
-                cursorRing.classList.add('hover');
+                cursorFollower.classList.add('hover');
+                targetScale = 1.5;
             });
             el.addEventListener('mouseleave', () => {
-                cursorDot.classList.remove('hover');
-                cursorRing.classList.remove('hover');
+                cursorFollower.classList.remove('hover');
+                targetScale = 1;
             });
         });
     }
 
-    
-    // --- Trailing Cursor Animation ---
-    // Create follower element dynamically
-    const follower = document.createElement('div');
-    follower.className = 'cursor-follower';
-    document.body.appendChild(follower);
-    
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let followerX = mouseX;
-    let followerY = mouseY;
-    
-    window.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-    
-    function animateFollower() {
-        followerX += (mouseX - followerX) * 0.15; // lerp factor
-        followerY += (mouseY - followerY) * 0.15;
-        
-        // Update position (transform handles the centering and rotation)
-        follower.style.left = followerX + 'px';
-        follower.style.top = followerY + 'px';
-        
-        requestAnimationFrame(animateFollower);
-    }
-    animateFollower();
-    
-    // Add hover states to interactives
-    const interactives = document.querySelectorAll('a, button, input, textarea, .project-card, .skill-tag, .contact-item');
-    interactives.forEach(el => {
-        el.addEventListener('mouseenter', () => follower.classList.add('hover'));
-        el.addEventListener('mouseleave', () => follower.classList.remove('hover'));
-    });
+});
